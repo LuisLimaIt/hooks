@@ -3,7 +3,7 @@ import PageTitle from '../../components/layout/PageTitle'
 import SectionTitle from '../../components/layout/SectionTitle'
 
 const merge = (s1, s2) => {
-    return s1 + s2
+    return [...s1].map((e, i) => `${e}${s2[i] || ""}`).join("");
 }
 
 const UseRef = (props) => {
@@ -36,7 +36,7 @@ const UseRef = (props) => {
             <SectionTitle title="Exercício #01"></SectionTitle>
             <div className="center">
                 <div>
-                    <span className="text">Valor</span>
+                    <span className="text">Valor: </span>
                     <span className="text">{merge(value1,value2)} [</span>
                     <span className="text red">{count.current}</span>
                     <span className="text">]</span>

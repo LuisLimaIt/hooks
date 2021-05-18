@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import PageTitle from '../../components/layout/PageTitle';
 import SectionTitle from '../../components/layout/SectionTitle';
 
@@ -16,13 +16,7 @@ const UseContext = (props) => {
         })
     }
 
-    const { number, text, setNumber, setText } = UseContext(AppContext);
-
-    useEffect(function() {
-        if(number > 1250) {
-            setText('Eita!!!')
-        }
-    }, [number]);
+    const { number, text, setNumber} = UseContext(AppContext);
 
     return (
         <div className="UseContext">
@@ -48,11 +42,15 @@ const UseContext = (props) => {
                 <span className="text">{text}</span>
                 <span className="text">{number}</span>
                 <div>
-                    <button className="btn"
-                        onClick={() => setNumber(number -1)}>-1
+                    <button 
+                        className="btn"
+                        onClick={() => setNumber(number -1)}>
+                        -1
                     </button>
-                    <button className="btn"
-                        onClick={() => setNumber(number + 1)}>+1
+                    <button 
+                        className="btn"
+                        onClick={() => setNumber(number + 1)}>
+                        +1
                     </button>
                 </div>
             </div>

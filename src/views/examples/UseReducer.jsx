@@ -16,8 +16,10 @@ function reducer(state, action, payload) {
         case 'numberMultipliedBy7':
             return{...state, number: state.number * 7}
         case 'numberDividedBy25':
-            return{...state, number: parseInt(state.number / 25)}
-        case 'addNewNumber':
+            return{...state, number: state.number / 25}
+        case 'numberInt':
+            return{...state, number: parseInt(state.number)}
+        case 'numberAddN':
             return{...state, number: state.number + action.payload}
         case 'login':
             return { ...state, user: { name: action.payload }}
@@ -57,17 +59,22 @@ const UseReducer = (props) => {
                     <button 
                         className="btn"
                         onClick={() => dispatch({type: 'numberMultipliedBy7'})}>
-                        x7
+                        *7
                     </button>
                     <button 
                         className="btn"
                         onClick={() => dispatch({type: 'numberDividedBy25'})}>
-                        %25
+                        /25
                     </button>
                     <button 
                         className="btn"
-                        onClick={() => dispatch({type: 'addNewNumber', payload: 36})}>
-                        Novo Número
+                        onClick={() => dispatch({type: 'numberInt'})}>
+                        Int
+                    </button>
+                    <button 
+                        className="btn"
+                        onClick={() => dispatch({type: 'numberAddN', payload: -25})}>
+                        -25
                     </button>
                 </div>
             </div>
